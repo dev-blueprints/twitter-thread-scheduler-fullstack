@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+.eggs/
+dist/
+build/
+develop-eggs/
+.installed.cfg
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# VSCode / PyCharm / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.out
+*.err
+
+# FastAPI / Uvicorn
+*.sqlite3
+instance/
+*.db
+
+# Firebase
+firebase-debug.log
+.firebaserc
+.firebase/
+firebase.json
+storage.rules
+firestore.rules
+service_account_firebase.json
+
+# Firebase service account key (VERY sensitive, don’t commit!)
+*.json
+
+# Configs / Secrets
+.env
+.env.*
+*.secret
+*.key
+*.pem
+*.crt
+config.yaml
+config.yml
+config.json
+
+# Pytest / Coverage
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.tox/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+*.sock
+docker-compose.override.yml
+
+**/__pycache__/
+
+celerybeat-schedule

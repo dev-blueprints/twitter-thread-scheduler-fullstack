@@ -1,0 +1,34 @@
+services:
+  fastapi_app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=mysql+pymysql://financethread:password@db:3306/financethread
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: financethread
+      MYSQL_USER: financethread
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  nginx:
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - fastapi_app
+
+volumes:
+  mysql_data:

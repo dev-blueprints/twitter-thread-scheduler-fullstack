@@ -1,0 +1,24 @@
+# ---- VS Code / Editors ----
+.vscode/
+.history/
+*.code-workspace
+.idea/
+
+# ---- Docker ----
+.dockerignore
+docker-compose.override.yml
+
+# ---- Logs ----
+*.log
+*.out
+*.err
+logs/
+log/
+
+# ---- OS files ----
+.DS_Store
+Thumbs.db
+
+
+.venv
+.env
