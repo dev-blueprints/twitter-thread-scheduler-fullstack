@@ -18,16 +18,19 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
     )
     
     try:
+        print(f"get_current_user token: {token}")
         payload = jwt.decode(token, settings.SECRET_KEY, algorithms=[settings.ALGORITHM])
-        username: str = payload.get("email")
-        if username is None:
+        print(f"get_current_user payload: {payload}")
+        useremail: str = payload.get("email")
+        if useremail is None:
             raise credentials_exception
     except JWTError:
         raise credentials_exception
     except Exception as e:
         raise credentials_exception
     
-    user = db.query(User).filter(User.email == username).first()
+    user = db.query(User).filter(User.email == useremail).first()
+    print(f"after db query user: {user}")
     if user is None:
         raise credentials_exception
     

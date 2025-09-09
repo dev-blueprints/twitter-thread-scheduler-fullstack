@@ -50,7 +50,7 @@ def login(form_data: EmailPasswordForm = Depends(), db: Session = Depends(get_db
     
     access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
-        data={"sub": user.username}, expires_delta=access_token_expires
+        data={"email": user.email}, expires_delta=access_token_expires
     )
     
     return {
